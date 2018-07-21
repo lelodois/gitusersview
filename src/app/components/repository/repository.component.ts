@@ -24,7 +24,7 @@ export class RepositoryComponent implements OnInit {
         this.eventsService.userChangedEvent
             .subscribe(userChanged => {
                 this.user = userChanged;
-
+                this.page = 1;
                 this.findRepos();
 
             });
