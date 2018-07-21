@@ -16,6 +16,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {RepositoryDetailComponent} from './components/repository-detail/repository-detail.component';
 import {UserFotoComponent} from './components/user-foto/user-foto.component';
 
+
 @NgModule({
     imports:
         [
