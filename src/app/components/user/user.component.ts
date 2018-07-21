@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IUserChanged} from '../../provider/model/iuserchanged.interface';
+import {IUserChanged} from '../../provider/model/user-changed.interface';
 import {UserService} from '../../provider/service/user.service';
 import {User} from '../../provider/model/user.model';
 import {EventsService} from '../../provider/service/events.service';
@@ -18,7 +18,7 @@ export class UserComponent implements IUserChanged {
     }
 
     updatedUser(login: string) {
-        this.userService.findByText(login)
+        this.userService.findByLogin(login)
             .subscribe(userLoaded => {
                 this.user = userLoaded;
                 this.eventService.userChangedEvent.emit(userLoaded);

@@ -1,6 +1,6 @@
 <div class="panel panel-default" *ngIf="user">
 
-    <div class="panel-heading"><h4>Git user: {{user.login}}</h4></div>
+    <div class="panel-heading"><h4>{{user.login | uppercase}}</h4></div>
 
     <div class="panel-body">
         <div class="box box-info">
@@ -34,11 +34,6 @@
                 <div class="clearfix"></div>
                 <div class="bot-border"></div>
 
-                <div class="col-sm-5 col-xs-6 tital ">Qtde repositórios:</div>
-                <div class="col-sm-7"> {{user.public_repos}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
-
                 <div class="col-sm-5 col-xs-6 tital ">Followers:</div>
                 <div class="col-sm-7"> {{user.followers}}</div>
                 <div class="clearfix"></div>
@@ -53,8 +48,6 @@
                 <div class="col-sm-7"> {{user.created_at | date}}</div>
                 <div class="clearfix"></div>
                 <div class="bot-border"></div>
-
-
             </div>
         </div>
     </div>

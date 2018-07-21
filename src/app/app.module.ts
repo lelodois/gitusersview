@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {AppRouters} from './app.router';
+import {APP_ROUTERS} from './app.router';
 import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from '@angular/router';
 import {EventsService} from './provider/service/events.service';
@@ -10,7 +10,8 @@ import {NavSearchComponent} from './components/nav-search/nav-search.component';
 import {UserComponent} from './components/user/user.component';
 import {UserService} from './provider/service/user.service';
 import {HttpClientModule} from '@angular/common/http';
-import { RepositoryComponent } from './components/repository/repository.component';
+import {RepositoryComponent} from './components/repository/repository.component';
+import {RepositoryService} from './provider/service/repository.service';
 
 @NgModule({
     imports:
@@ -18,7 +19,7 @@ import { RepositoryComponent } from './components/repository/repository.componen
             HttpClientModule,
             BrowserModule,
             RouterModule,
-            AppRouters
+            APP_ROUTERS
         ],
     declarations:
         [
@@ -38,7 +39,8 @@ import { RepositoryComponent } from './components/repository/repository.componen
     providers:
         [
             EventsService,
-            UserService
+            UserService,
+            RepositoryService
         ],
     bootstrap:
         [

@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {EventsService} from '../../provider/service/events.service';
-import {IUserChanged} from '../../provider/model/iuserchanged.interface';
+import {IUserChanged} from '../../provider/model/user-changed.interface';
 import {User} from '../../provider/model/user.model';
 
 @Component({

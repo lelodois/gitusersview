@@ -1,3 +1,30 @@
-<p>
-    repository works! by {{user?.login}}
-</p>
+<div *ngIf="repos.length > 0" class="panel panel-default">
+
+    <div class="panel-heading"><h4>{{user.public_repos}} Repositórios</h4></div>
+
+    <div class="panel-body">
+        <div class="box box-info">
+            <div class="box-body">
+                <table class="table table-sm table-hover">
+                    <tbody>
+                    <tr *ngFor="let repo of repos">
+                        <td>
+                            <button class="btn-view-fund btn btn-default btn-xs  pull-left" type="button">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden=" true"></span>
+                            </button>
+                        </td>
+
+                        <td>{{repo.name}}</td>
+                        <td>{{repo.full_name}}</td>
+                        <td>
+                            <i *ngIf="repo.stargazers_count > 0" class="fa glyphicon glyphicon-star"></i>
+                            <i *ngIf="repo.stargazers_count == 0" class="fa glyphicon glyphicon-star-empty"></i>
+                            {{repo.stargazers_count}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

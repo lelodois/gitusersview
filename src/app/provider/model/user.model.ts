@@ -14,15 +14,11 @@ export class User {
     private _followers: string;
     private _following: string;
     private _created_at: Date;
+    private _repos_url: string;
 
-    /**
-     starred_url: "https://api.github.com/users/A/starred{/owner}{/repo}",
-     subscriptions_url: "https://api.github.com/users/A/subscriptions",
-     organizations_url: "https://api.github.com/users/A/orgs",
-     repos_url: "https://api.github.com/users/A/repos",
-     events_url: "https://api.github.com/users/A/events{/privacy}",
-     received_events_url: "https://api.github.com/users/A/received_events",
-     **/
+    get repos_url(): string {
+        return this._repos_url;
+    }
 
     set login(value: string) {
         this._login = value;
