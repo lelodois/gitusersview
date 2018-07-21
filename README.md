@@ -1,27 +1,40 @@
-# Gitusersview
+## Vestibular Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
+Versão Frontend do sistema de vestibular
 
-## Development server
+* ** Backend ** - *Java API* - [Source code](https://github.com/lelodois/vest-backend)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Tutoriais
+- [Medium] [Do front-end ao back-end usando Angular 4 e Java em containers docker](https://medium.com/@locosta_61043/do-front-end-ao-back-end-usando-angular-4-e-java-em-containers-docker-5d0eba0fcbcc)  
 
-## Code scaffolding
+- [Churrops] [Do front-end ao back-end usando Angular 4 e Java em containers docker](http://churrops.io/2018/06/25/do-front-end-ao-back-end-usando-angular-4-e-java-em-containers-docker/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Dockerize
 
-## Build
+Clone este projeto e execute o comando abaixo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+  sudo docker build -t vestfront-docker .
+  sudo docker run -d -p 80:80 vestfront-docker
+```
 
-## Running unit tests
+### Pré-requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+  NodeJs
+  Npm
+  AngularCli
+  Docker
+```
+### Tecnologias
 
-## Running end-to-end tests
+* Angular 4
+* Bootstrap 3
+* Typescript
+* Nginx
+* JSON Web Tokens
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Autor
 
-## Further help
+* **Léo Costa** - *Initial work* - [Meu git](https://github.com/lelodois)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
