@@ -1,0 +1,59 @@
+<div class="panel panel-default" *ngIf="user">
+
+    <div class="panel-heading"><h4>Git user: {{user.login}}</h4></div>
+
+    <div class="panel-body">
+        <div class="box box-info">
+            <div class="box-body">
+                <div class="col-sm-6">
+                    <div align="center">
+                        <img alt="User Pic"
+                             src="{{user.avatar_url ? user.avatar_url : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'}} "
+                             id="image-git-user" class="img-circle img-responsive">
+                        <input id="profile-image-upload" class="hidden" type="file">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4 class="text-success">
+                        {{user.name | uppercase}}
+                    </h4>
+                    <span><p>{{user.bio}}</p></span>
+                </div>
+
+                <div class="clearfix"></div>
+                <hr style="margin:5px 0 5px 0;">
+
+                <div class="col-sm-5 col-xs-6 tital ">Empresa:</div>
+                <div class="col-sm-7 col-xs-6 ">{{user.company}}</div>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital ">Localização:</div>
+                <div class="col-sm-7"> {{user.location}}</div>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital ">Qtde repositórios:</div>
+                <div class="col-sm-7"> {{user.public_repos}}</div>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital ">Followers:</div>
+                <div class="col-sm-7"> {{user.followers}}</div>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital ">Following:</div>
+                <div class="col-sm-7"> {{user.following}}</div>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

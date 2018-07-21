@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {EventsService} from '../../provider/service/events.service';
+import {IUserChanged} from '../../provider/model/iuserchanged.interface';
 
 @Component({
     selector: 'app-home',
@@ -8,14 +9,16 @@ import {EventsService} from '../../provider/service/events.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private eventsService: EventsService) {
+    @ViewChild('userComponent')
+    private userComponent: IUserChanged;
 
+    constructor(private eventsService: EventsService) {
     }
 
     ngOnInit(): void {
         this.eventsService.searchEvent
             .subscribe(text => {
-                alert(text);
+                this.userComponent.showNewUser(text);
             });
     }
 

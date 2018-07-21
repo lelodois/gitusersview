@@ -7,28 +7,36 @@ import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from '@angular/router';
 import {EventsService} from './provider/service/events.service';
 import {NavSearchComponent} from './components/nav-search/nav-search.component';
+import {UserComponent} from './components/user/user.component';
+import {UserService} from './provider/service/user.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-    declarations:
-        [
-            AppComponent,
-            HomeComponent,
-            NavSearchComponent
-        ],
-    exports:
-        [
-            HomeComponent,
-            NavSearchComponent
-        ],
     imports:
         [
+            HttpClientModule,
             BrowserModule,
             RouterModule,
             AppRouters
         ],
+    declarations:
+        [
+            AppComponent,
+            HomeComponent,
+            NavSearchComponent,
+            UserComponent
+        ],
+    exports:
+        [
+            HomeComponent,
+            NavSearchComponent,
+            UserComponent
+        ],
+
     providers:
         [
-            EventsService
+            EventsService,
+            UserService
         ],
     bootstrap:
         [
