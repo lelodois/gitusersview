@@ -13,6 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RepositoryComponent} from './components/repository/repository.component';
 import {RepositoryService} from './provider/service/repository.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {RepositoryDetailComponent} from './components/repository-detail/repository-detail.component';
+import {UserFotoComponent} from './components/user-foto/user-foto.component';
 
 @NgModule({
     imports:
@@ -29,13 +31,18 @@ import {NgxPaginationModule} from 'ngx-pagination';
             HomeComponent,
             NavSearchComponent,
             UserComponent,
-            RepositoryComponent
+            RepositoryComponent,
+            RepositoryDetailComponent,
+            UserFotoComponent
         ],
     exports:
         [
             HomeComponent,
             NavSearchComponent,
-            UserComponent
+            UserComponent,
+            RepositoryComponent,
+            RepositoryDetailComponent,
+            UserFotoComponent
         ],
 
     providers:

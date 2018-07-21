@@ -2,25 +2,11 @@
 
     <div class="panel-heading"><h4>{{user.login | uppercase}}</h4></div>
 
+    <app-user-foto [user]="user"></app-user-foto>
+
     <div class="panel-body">
         <div class="box box-info">
             <div class="box-body">
-                <div class="col-sm-6">
-                    <div align="center">
-                        <img alt="User Pic"
-                             src="{{user.avatar_url ? user.avatar_url : 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'}} "
-                             id="image-git-user" class="img-circle img-responsive">
-                        <input id="profile-image-upload" class="hidden" type="file">
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <h4 class="text-success">
-                        {{user.name | uppercase}}
-                    </h4>
-                    <span><p>{{user.bio}}</p></span>
-                </div>
-
                 <div class="clearfix"></div>
                 <hr style="margin:5px 0 5px 0;">
 

@@ -12,7 +12,9 @@
                             currentPage: page,
                             totalItems: user.public_repos }">
                         <td>
-                            <button class="btn-view-fund btn btn-default btn-xs  pull-left" type="button">
+                            <button class="btn-view-fund btn btn-default btn-xs  pull-left"
+                                    type="button"
+                                    (click)="showRepositoryDetail(repo)">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden=" true"></span>
                             </button>
                         </td>
@@ -32,3 +34,5 @@
         </div>
     </div>
 </div>
+
+<app-repository-detail #repoDetail></app-repository-detail>

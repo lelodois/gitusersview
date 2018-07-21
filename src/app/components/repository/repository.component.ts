@@ -3,6 +3,7 @@ import {EventsService} from '../../provider/service/events.service';
 import {Repository} from '../../provider/model/repositorio.model';
 import {RepositoryService} from '../../provider/service/repository.service';
 import {User} from '../../provider/model/user.model';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-repository',
@@ -17,7 +18,8 @@ export class RepositoryComponent implements OnInit {
     itemsPerPage = 30;
 
     constructor(private eventsService: EventsService,
-                private repoService: RepositoryService) {
+                private repoService: RepositoryService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -30,16 +32,20 @@ export class RepositoryComponent implements OnInit {
             });
     }
 
-    findRepos() {
+    pageChanged(event) {
+        this.page = event;
+        this.findRepos();
+    }
+
+    showRepositoryDetail(repository: Repository) {
+        this.router.navigate(['repository', repository.id]);
+    }
+
+    private findRepos() {
         this.repoService.findByLogin(this.user.login, this.page, this.itemsPerPage)
             .subscribe(repos => {
                 this.repos = repos;
             });
-    }
-
-    pageChanged(event) {
-        this.page = event;
-        this.findRepos();
     }
 
 }
