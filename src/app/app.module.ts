@@ -12,6 +12,7 @@ import {UserService} from './provider/service/user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RepositoryComponent} from './components/repository/repository.component';
 import {RepositoryService} from './provider/service/repository.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
     imports:
@@ -19,6 +20,7 @@ import {RepositoryService} from './provider/service/repository.service';
             HttpClientModule,
             BrowserModule,
             RouterModule,
+            NgxPaginationModule,
             APP_ROUTERS
         ],
     declarations:

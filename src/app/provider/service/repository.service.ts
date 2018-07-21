@@ -10,9 +10,13 @@ export class RepositoryService {
     constructor(private http: HttpClient) {
     }
 
-    findByLogin(login: string): Observable<Repository[]> {
+    findByLogin(login: string, page: number, itemsPerPage: number): Observable<Repository[]> {
         return this.http.get<Repository[]>(
-            URL_USER.concat(login).concat('/repos')
+            URL_USER.concat(login)
+                .concat('/repos?page=')
+                .concat(page.toString())
+                .concat('&per_page=')
+                .concat(itemsPerPage.toString())
         );
     }
 }

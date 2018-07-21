@@ -13,6 +13,8 @@ export class RepositoryComponent implements OnInit {
 
     repos: Repository[] = [];
     user: User = undefined;
+    page = 1;
+    itemsPerPage = 30;
 
     constructor(private eventsService: EventsService,
                 private repoService: RepositoryService) {
@@ -23,12 +25,21 @@ export class RepositoryComponent implements OnInit {
             .subscribe(userChanged => {
                 this.user = userChanged;
 
-                this.repoService.findByLogin(this.user.login)
-                    .subscribe(repos => {
-                        this.repos = repos;
-                    });
+                this.findRepos();
 
             });
+    }
+
+    findRepos() {
+        this.repoService.findByLogin(this.user.login, this.page, this.itemsPerPage)
+            .subscribe(repos => {
+                this.repos = repos;
+            });
+    }
+
+    pageChanged(event) {
+        this.page = event;
+        this.findRepos();
     }
 
 }
