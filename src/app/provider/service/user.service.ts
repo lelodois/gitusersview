@@ -11,7 +11,7 @@ export class UserService {
     constructor(private http: HttpClient) {
     }
 
-    findByText(text: string): Observable<User> {
-        return this.http.get<User>(this.URL.concat(text));
+    findByText(login: string): Observable<User> {
+        return this.http.get<User>(this.URL.concat(login));
     }
 }

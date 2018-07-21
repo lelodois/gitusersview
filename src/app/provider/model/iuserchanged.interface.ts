@@ -1,5 +1,5 @@
 export interface IUserChanged {
 
-    showNewUser(login: string);
+    updatedUser(login: string);
 
 }

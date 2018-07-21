@@ -10,6 +10,7 @@ import {NavSearchComponent} from './components/nav-search/nav-search.component';
 import {UserComponent} from './components/user/user.component';
 import {UserService} from './provider/service/user.service';
 import {HttpClientModule} from '@angular/common/http';
+import { RepositoryComponent } from './components/repository/repository.component';
 
 @NgModule({
     imports:
@@ -24,7 +25,8 @@ import {HttpClientModule} from '@angular/common/http';
             AppComponent,
             HomeComponent,
             NavSearchComponent,
-            UserComponent
+            UserComponent,
+            RepositoryComponent
         ],
     exports:
         [

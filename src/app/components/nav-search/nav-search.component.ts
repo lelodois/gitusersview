@@ -11,7 +11,7 @@ export class NavSearchComponent {
     constructor(private _eventsService: EventsService) {
     }
 
-    emitSearch(text: String) {
-        this._eventsService.searchEvent.emit(text);
+    emitSearch(text: string) {
+        this._eventsService.userSearchEvent.emit(text);
     }
 }
