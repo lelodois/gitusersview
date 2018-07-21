@@ -5,32 +5,28 @@
     <div class="panel-body">
         <div class="box box-info">
             <div class="box-body">
-                <table class="table table-sm table-hover">
-                    <tbody>
-                    <tr *ngFor="let repo of repos | paginate: {
+
+                <a class="list-group-item list-group-item-action"
+                   *ngFor="let repo of repos | paginate: {
                             itemsPerPage: itemsPerPage,
                             currentPage: page,
-                            totalItems: user.public_repos }">
-                        <td>
-                            <button class="btn-view-fund btn btn-default btn-xs  pull-left"
-                                    type="button"
-                                    (click)="showRepositoryDetail(repo)">
-                                <span class="glyphicon glyphicon-eye-open" aria-hidden=" true"></span>
-                            </button>
-                        </td>
+                            totalItems: user.public_repos }"
+                   (click)="showRepositoryDetail(repo)">
 
-                        <td>{{repo.name}}</td>
-                        <td>{{repo.full_name}}</td>
-                        <td>
-                            <i *ngIf="repo.stargazers_count > 0" class="fa glyphicon glyphicon-star"></i>
-                            <i *ngIf="repo.stargazers_count == 0" class="fa glyphicon glyphicon-star-empty"></i>
-                            {{repo.stargazers_count}}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            <span>
+                <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                <span style="padding-left: 5px;">{{repo.name}}</span>
+            </span>
+
+                    <span class="pull-right">
+                <i *ngIf="repo.stargazers_count > 0" class="fa glyphicon glyphicon-star"></i>
+                <i *ngIf="repo.stargazers_count == 0" class="fa glyphicon glyphicon-star-empty"></i>
+                {{repo.stargazers_count | number}}
+            </span>
+                </a>
             </div>
+
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
         </div>
     </div>
 </div>

@@ -1,35 +1,32 @@
 <div *ngIf="repository">
-
-    <div class="panel panel-default" *ngIf="repository">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="text-success">
+                {{repository.full_name | uppercase}}
+            </h4>
+        </div>
         <div class="panel-body">
-            <div class="box box-info">
-                <div class="box-body">
-                    <div>
-                        <h4 class="text-success">
-                            {{repository.full_name | uppercase}}
-                        </h4>
-                    </div>
+            <div class="box-body">
 
-                    <div class="col-sm-8" style="padding-top: 20px;">
-                        <div class="col-sm-3">Descrição:</div>
-                        <div class="col-sm-9 ">{{repository.description}}</div>
+                <div class="col-xs-8" style="padding-top: 20px;">
+                    <div class="col-xs-4">Descrição:</div>
+                    <div class="col-xs-8">{{repository.description ? repository.description : 'Sem descrição'}}</div>
 
-                        <div class="col-sm-3">Estrelas:</div>
-                        <div class="col-sm-9"> {{repository.stargazers_count}}</div>
+                    <div class="col-xs-4">Estrelas:</div>
+                    <div class="col-xs-8">{{repository.stargazers_count | number}}</div>
 
-                        <div class="col-sm-3">Criado em:</div>
-                        <div class="col-sm-9"> {{repository.created_at | date}}</div>
+                    <div class="col-xs-4">Criado em:</div>
+                    <div class="col-xs-8">{{repository.created_at | date}}</div>
 
-                        <div class="col-sm-3">Atualizado em:</div>
-                        <div class="col-sm-9"> {{repository.updated_at | date}}</div>
+                    <div class="col-xs-4">Atualizado em:</div>
+                    <div class="col-xs-8">{{repository.updated_at | date}}</div>
 
-                        <div class="col-sm-4">Linguagem:</div>
-                        <div class="col-sm-9"> {{repository.language}}</div>
-                    </div>
+                    <div class="col-xs-4">Linguagem:</div>
+                    <div class="col-xs-8"><strong>{{repository.language}}</strong></div>
+                </div>
 
-                    <div class="col-sm-4">
-                        <app-user-foto [user]="repository.owner"></app-user-foto>
-                    </div>
+                <div class="col-xs-4">
+                    <app-user-foto [user]="repository.owner"></app-user-foto>
                 </div>
             </div>
         </div>
@@ -40,7 +37,7 @@
             <button type="button"
                     target="_blank"
                     (click)="backToUser()"
-                    class="btn btn-default">
+                    class="btn btn-default btn-xs">
                 Voltar
             </button>
         </div>
@@ -48,7 +45,7 @@
             <button type="button"
                     target="_blank"
                     (click)="repository.clone_url"
-                    class="btn btn-success">
+                    class="btn btn-info btn-xs">
                 {{repository.full_name}}
             </button>
         </div>

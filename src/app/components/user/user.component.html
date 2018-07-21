@@ -2,38 +2,43 @@
 
     <div class="panel-heading"><h4>{{user.login | uppercase}}</h4></div>
 
-    <app-user-foto [user]="user"></app-user-foto>
-
     <div class="panel-body">
         <div class="box box-info">
             <div class="box-body">
-                <div class="clearfix"></div>
-                <hr style="margin:5px 0 5px 0;">
+                <div class="col-sm-8">
+                    <div class="clearfix"></div>
+                    <hr style="margin:5px 0 5px 0;">
 
-                <div class="col-sm-5 col-xs-6 tital ">Empresa:</div>
-                <div class="col-sm-7 col-xs-6 ">{{user.company}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
+                    <div class="col-sm-5 col-xs-6 tital ">Empresa:</div>
+                    <div class="col-sm-7 col-xs-6 ">{{user.company}}</div>
+                    <div class="clearfix"></div>
+                    <div class="bot-border"></div>
 
-                <div class="col-sm-5 col-xs-6 tital ">Localização:</div>
-                <div class="col-sm-7"> {{user.location}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
+                    <div class="col-sm-5 col-xs-6 tital ">Localização:</div>
+                    <div class="col-sm-7"> {{user.location}}</div>
+                    <div class="clearfix"></div>
+                    <div class="bot-border"></div>
 
-                <div class="col-sm-5 col-xs-6 tital ">Followers:</div>
-                <div class="col-sm-7"> {{user.followers}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
+                    <div class="col-sm-5 col-xs-6 tital ">Followers:</div>
+                    <div class="col-sm-7"> {{user.followers | number}}</div>
+                    <div class="clearfix"></div>
+                    <div class="bot-border"></div>
 
-                <div class="col-sm-5 col-xs-6 tital ">Following:</div>
-                <div class="col-sm-7"> {{user.following}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
+                    <div class="col-sm-5 col-xs-6 tital ">Following:</div>
+                    <div class="col-sm-7"> {{user.following | number}}</div>
+                    <div class="clearfix"></div>
+                    <div class="bot-border"></div>
 
-                <div class="col-sm-5 col-xs-6 tital ">Usuário desde:</div>
-                <div class="col-sm-7"> {{user.created_at | date}}</div>
-                <div class="clearfix"></div>
-                <div class="bot-border"></div>
+                    <div class="col-sm-5 col-xs-6 tital ">Usuário desde:</div>
+                    <div class="col-sm-7"> {{user.created_at | date}}</div>
+                    <div class="clearfix"></div>
+                    <div class="bot-border"></div>
+                </div>
+
+                <div class="col-sm-4">
+                    <app-user-foto [user]="user"></app-user-foto>
+                </div>
+
             </div>
         </div>
     </div>
