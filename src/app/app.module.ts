@@ -5,21 +5,35 @@ import {AppComponent} from './app.component';
 import {AppRouters} from './app.router';
 import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from '@angular/router';
-import { SearchComponent } from './components/search/search.component';
+import {EventsService} from './provider/service/events.service';
+import {NavSearchComponent} from './components/nav-search/nav-search.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        SearchComponent
-    ],
-    imports: [
-        BrowserModule,
-        RouterModule,
-        AppRouters
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+    declarations:
+        [
+            AppComponent,
+            HomeComponent,
+            NavSearchComponent
+        ],
+    exports:
+        [
+            HomeComponent,
+            NavSearchComponent
+        ],
+    imports:
+        [
+            BrowserModule,
+            RouterModule,
+            AppRouters
+        ],
+    providers:
+        [
+            EventsService
+        ],
+    bootstrap:
+        [
+            AppComponent
+        ]
 })
 export class AppModule {
 }
