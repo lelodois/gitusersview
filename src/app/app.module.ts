@@ -15,6 +15,7 @@ import {RepositoryService} from './provider/service/repository.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RepositoryDetailComponent} from './components/repository-detail/repository-detail.component';
 import {UserFotoComponent} from './components/user-foto/user-foto.component';
+import {FriendsComponent} from './components/friends/friends.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {UserFotoComponent} from './components/user-foto/user-foto.component';
             UserComponent,
             RepositoryComponent,
             RepositoryDetailComponent,
-            UserFotoComponent
+            UserFotoComponent,
+            FriendsComponent
         ],
     exports:
         [
@@ -43,7 +45,8 @@ import {UserFotoComponent} from './components/user-foto/user-foto.component';
             UserComponent,
             RepositoryComponent,
             RepositoryDetailComponent,
-            UserFotoComponent
+            UserFotoComponent,
+            FriendsComponent
         ],
 
     providers:

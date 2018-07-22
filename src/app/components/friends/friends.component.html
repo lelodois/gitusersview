@@ -1,0 +1,40 @@
+<div id="modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Amigos do {{user.name}} no git</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default" *ngIf="friends.length == 0">
+                    <h4>Carregando os amigos</h4>
+                </div>
+                <div class="panel panel-default" *ngIf="friends.length > 0">
+                    <div class="panel-body">
+                        <div class="box box-info">
+                            <div class="box-body">
+                                <a class="list-group-item list-group-item-action"
+                                   *ngFor="let friend of friends">
+                                    <span>
+                                        <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                                        <span style="padding-left: 5px;">{{friend.friendLogin}}</span>
+                                    </span>
+                                    <span>
+                                        <span style="padding-left: 5px;">
+                                            {{friend.friendFollower ? 'Follower' : ''}}
+                                        </span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <i class="fa glyphicon glyphicon-star"></i>
+                                        {{friend.stars}}
+                                     </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
