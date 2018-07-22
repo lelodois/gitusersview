@@ -33,6 +33,7 @@
                     <div class="col-sm-7"> {{user.created_at | date}}</div>
                     <div class="clearfix"></div>
                     <div class="bot-border"></div>
+
                 </div>
 
                 <div class="col-sm-4">
@@ -43,6 +44,31 @@
         </div>
     </div>
 </div>
+
+<div class="panel panel-default" *ngIf="friends.length > 0">
+
+    <div class="panel-heading"><h4>Top amigos do git</h4></div>
+
+    <div class="panel-body">
+        <div class="box box-info">
+            <div class="box-body">
+                <a class="list-group-item list-group-item-action"
+                   *ngFor="let friend of friends">
+                    <span>
+                        <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        <span style="padding-left: 5px;">{{friend.friendLogin}}</span>
+                    </span>
+                    <span class="pull-right">
+                        <i class="fa glyphicon glyphicon-star"></i>
+                        {{friend.stars}}
+                     </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 

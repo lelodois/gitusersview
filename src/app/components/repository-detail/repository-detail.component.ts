@@ -3,6 +3,7 @@ import {RepositoryService} from '../../provider/service/repository.service';
 import {Repository} from '../../provider/model/repositorio.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../provider/service/user.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-repository-detail',
@@ -14,6 +15,7 @@ export class RepositoryDetailComponent implements OnInit {
     repository: Repository = undefined;
 
     constructor(private router: Router,
+                private http: HttpClient,
                 private service: RepositoryService,
                 private userService: UserService,
                 private activatedRouter: ActivatedRoute) {
@@ -24,11 +26,14 @@ export class RepositoryDetailComponent implements OnInit {
             this.service.findById(this.activatedRouter.snapshot.params.id)
                 .subscribe(repoResult => {
                     this.repository = repoResult;
-
-                    this.userService.findByLogin(repoResult.owner.login)
-                        .subscribe(userResponse => this.repository.owner = userResponse);
+                    this.findRepoByLogin(repoResult.owner.login);
                 });
         }
+    }
+
+    findRepoByLogin(login: string) {
+        this.userService.findByLogin(login)
+            .subscribe(userResponse => this.repository.owner = userResponse);
     }
 
     backToUser() {
