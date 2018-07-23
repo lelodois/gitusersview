@@ -13,15 +13,17 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
         return next.handle(request)
             .catch((err: HttpErrorResponse) => {
-                if (err.status == 403) {
-                    alert('O github bloqueou nosso acesso, pois excedemos os requests sem logar :(');
-                } else {
-                    alert(
-                        'Ocorreu um erro desconhecido [status]-'
-                            .concat(err.status.toString())
-                            .concat('\n[Erro]-')
-                            .concat(err.message.toLowerCase())
-                    );
+                if (err.status != 200 && err.status != 500) {
+                    if (err.status == 403) {
+                        alert('O github bloqueou nosso acesso, pois excedemos os requests sem logar :(');
+                    } else {
+                        alert(
+                            'Ocorreu um erro desconhecido [status]-'
+                                .concat(err.status.toString())
+                                .concat('\n[Erro]-')
+                                .concat(err.message.toLowerCase())
+                        );
+                    }
                 }
                 return Observable.empty<HttpEvent<any>>();
             });

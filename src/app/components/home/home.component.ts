@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
     private userComponent: IUserChanged;
 
     constructor(private eventsService: EventsService,
-                private activatedRouter: ActivatedRoute,
-                private router: Router) {
+                private activatedRouter: ActivatedRoute) {
     }
 
     ngOnInit(): void {

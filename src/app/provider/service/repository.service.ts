@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {URL_REPO, URL_USER} from '../url-util.service';
+import {URL_GIT_AUTH, URL_REPO, URL_USER} from '../url-util.service';
 import {Repository} from '../model/repositorio.model';
 
 @Injectable()
@@ -17,12 +17,17 @@ export class RepositoryService {
                 .concat(page.toString())
                 .concat('&per_page=')
                 .concat(itemsPerPage.toString())
+                .concat('&')
+                .concat(URL_GIT_AUTH)
         );
     }
 
     findById(repoId: number): Observable<Repository> {
         return this.http.get<Repository>(
-            URL_REPO.concat(repoId.toString())
+            URL_REPO.concat(repoId.toString()
+                .concat('?')
+                .concat(URL_GIT_AUTH)
+            )
         );
     }
 }

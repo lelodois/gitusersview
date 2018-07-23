@@ -22,26 +22,30 @@ export class FriendsComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         this.eventsService.toLoadFriends
-            .subscribe(login => this.findTopFriends(login));
+            .subscribe(login => this.findTopFriendsOnReady(login));
 
         this.eventsService.userChangedEvent
-            .subscribe(user => this.sendToLoadFriends(user.login));
+            .subscribe(user => this.eventsService.toLoadFriends.emit(user.login));
+
+    }
+
+    findTopFriendsOnReady(login: string) {
+        this.userService.findTopFriendsReady(login)
+            .subscribe(ready => {
+                if (ready.ready) {
+                    this.findTopFriends(login);
+                } else {
+                    setTimeout(() => this.eventsService.toLoadFriends.emit(login), 3000);
+                }
+            });
     }
 
     findTopFriends(login: string) {
         this.userService.findTopFriends(login)
             .subscribe(response => {
-                if (response.length == 0) {
-                    this.sendToLoadFriends(login);
-                } else {
-                    this.friends = response;
-                    this.showModal();
-                }
+                this.friends = response;
+                this.showModal();
             });
-    }
-
-    sendToLoadFriends(login: string) {
-        this.eventsService.toLoadFriends.emit(login);
     }
 
     ngAfterViewInit(): void {
@@ -49,10 +53,10 @@ export class FriendsComponent implements OnInit, AfterViewInit {
     }
 
     closeModal() {
-        this.friendModal.friendModal('hide');
+        this.friendModal.modal('hide');
     }
 
     showModal() {
-        this.friendModal.friendModal('show');
+        this.friendModal.modal('show');
     }
 }
