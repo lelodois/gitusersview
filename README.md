@@ -1,40 +1,36 @@
-## Vestibular Frontend
-
-Versão Frontend do sistema de vestibular
-
-* ** Backend ** - *Java API* - [Source code](https://github.com/lelodois/vest-backend)
-
-### Tutoriais
-- [Medium] [Do front-end ao back-end usando Angular 4 e Java em containers docker](https://medium.com/@locosta_61043/do-front-end-ao-back-end-usando-angular-4-e-java-em-containers-docker-5d0eba0fcbcc)  
-
-- [Churrops] [Do front-end ao back-end usando Angular 4 e Java em containers docker](http://churrops.io/2018/06/25/do-front-end-ao-back-end-usando-angular-4-e-java-em-containers-docker/)
-
-### Dockerize
-
-Clone este projeto e execute o comando abaixo:
-
-```
-  sudo docker build -t vestfront-docker .
-  sudo docker run -d -p 80:80 vestfront-docker
-```
+## App web que retorna informações de um usuário do github
 
 ### Pré-requisitos
 
+- Angular 4
+- Node
+- Npm
+
+### Instalação
+
 ```
-  NodeJs
-  Npm
-  AngularCli
-  Docker
+ - git clone https://github.com/lelodois/gitusersview.git
+ - npm install
+ - ng serve
 ```
-### Tecnologias
+Execute as urls abaixo:
 
-* Angular 4
-* Bootstrap 3
-* Typescript
-* Nginx
-* JSON Web Tokens
+```
+ - http://localhost:9090/gitfriends/git/friends/ {gitLogin}
+ - http://localhost:9090/gitfriends/local/users/ {gitLogin}
+ - http://localhost:9090/gitfriends/local/top-friends/ {gitLogin}
+```
 
-### Autor
 
-* **Léo Costa** - *Initial work* - [Meu git](https://github.com/lelodois)
+## Tecnologias
 
+- Angular 4
+- Node
+- [Compodoc](https://github.com/compodoc/compodoc)
+- [NgxPagination](https://www.npmjs.com/package/ngx-pagination)
+- [GithubApi])(https://developer.github.com/v3/)
+- WebStorm
+
+## Autor
+
+* **Leo costa** - *Initial work* - [GitUsersView](https://github.com/lelodois/gitusersview)
