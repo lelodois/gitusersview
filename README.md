@@ -1,5 +1,7 @@
 ## App web que retorna informações de um usuário do github
 
+![App](https://github.com/lelodois/gitusersview/blob/master/front-home-top.png)
+
 ### Pré-requisitos
 
 - Angular 4
