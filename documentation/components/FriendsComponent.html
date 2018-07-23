@@ -455,6 +455,30 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> closeModal</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>closeModal()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> showModal</b>
                         </td>
                     </tr>
@@ -483,6 +507,26 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> friendModal</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>friendModal:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>undefined</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> friends</b>
                         </td>
                     </tr>
@@ -494,25 +538,10 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> saveModal</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>saveModal:     <code>any</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import {Component, ElementRef, OnInit} from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import {AfterViewInit, Component, ElementRef, OnInit} from &#x27;@angular/core&#x27;;
 import {EventsService} from &#x27;../../provider/service/events.service&#x27;;
 import {UserService} from &#x27;../../provider/service/user.service&#x27;;
 import {Friend} from &#x27;../../provider/model/friend.model&#x27;;
@@ -524,10 +553,10 @@ declare var $: any;
     templateUrl: &#x27;./friends.component.html&#x27;,
     styleUrls: [&#x27;./friends.component.scss&#x27;]
 })
-export class FriendsComponent implements OnInit {
+export class FriendsComponent implements OnInit, AfterViewInit {
 
     friends: Friend[] &#x3D; [];
-    saveModal &#x3D; null;
+    friendModal &#x3D; undefined;
 
     constructor(private eventsService: EventsService,
                 private userService: UserService,
@@ -535,7 +564,6 @@ export class FriendsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         this.eventsService.userChangedEvent
             .subscribe(user &#x3D;&gt; {
                 this.userService.findTopFriends(user.login)
@@ -546,10 +574,17 @@ export class FriendsComponent implements OnInit {
             });
     }
 
-    showModal() {
-        $(this.rootNode.nativeElement).find(&#x27;#modal&#x27;).modal(&#x27;show&#x27;);
+    ngAfterViewInit(): void {
+        this.friendModal &#x3D; $(this.rootNode.nativeElement).find(&#x27;#friendModal&#x27;);
     }
 
+    closeModal() {
+        this.friendModal.friendModal(&#x27;hide&#x27;);
+    }
+
+    showModal() {
+        this.friendModal.friendModal(&#x27;show&#x27;);
+    }
 }
 </code></pre>
         </div>
