@@ -21,14 +21,27 @@ export class FriendsComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit(): void {
+        this.eventsService.toLoadFriends
+            .subscribe(login => this.findTopFriends(login));
+
         this.eventsService.userChangedEvent
-            .subscribe(user => {
-                this.userService.findTopFriends(user.login)
-                    .subscribe(response => {
-                        this.friends = response;
-                        this.showModal();
-                    });
+            .subscribe(user => this.sendToLoadFriends(user.login));
+    }
+
+    findTopFriends(login: string) {
+        this.userService.findTopFriends(login)
+            .subscribe(response => {
+                if (response.length == 0) {
+                    this.sendToLoadFriends(login);
+                } else {
+                    this.friends = response;
+                    this.showModal();
+                }
             });
+    }
+
+    sendToLoadFriends(login: string) {
+        this.eventsService.toLoadFriends.emit(login);
     }
 
     ngAfterViewInit(): void {
