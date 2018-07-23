@@ -39,13 +39,15 @@
                 <div class="col-sm-4">
                     <app-user-foto [user]="user"></app-user-foto>
                 </div>
-
             </div>
         </div>
     </div>
+    <div style="padding: 5px;">
+        <button (click)="showFriends(user.login)" class="btn btn-success">Veja os amigos</button>
+    </div>
 </div>
 
-<app-friends></app-friends>
+<app-friends #friendModal></app-friends>
 
 
 

@@ -2,9 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../model/user.model';
-import {URL_FRIENDS, URL_FRIENDS_PUT, URL_FRIENDS_READY, URL_GIT_AUTH, URL_USER} from '../url-util.service';
+import {URL_FRIENDS, URL_FRIENDS_PUT, URL_GIT_AUTH, URL_USER} from '../url-util.service';
 import {Friend} from '../model/friend.model';
-import {MyRequest} from '../model/request.model';
 
 @Injectable()
 export class UserService {
@@ -31,12 +30,6 @@ export class UserService {
     findTopFriends(login: string): Observable<Friend[]> {
         return this.http.get<Friend[]>(
             URL_FRIENDS.concat(login)
-        );
-    }
-
-    findTopFriendsReady(login: string): Observable<MyRequest> {
-        return this.http.get<MyRequest>(
-            URL_FRIENDS_READY.concat(login)
         );
     }
 }
