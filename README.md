@@ -33,6 +33,9 @@ Execute as urls abaixo:
 - [GithubApi])(https://developer.github.com/v3/)
 - WebStorm
 
+![Componentes](https://github.com/lelodois/gitusersview/blob/master/front-fluxo.png)
+
+
 ## Autor
 
 * **Leo costa** - *Initial work* - [GitUsersView](https://github.com/lelodois/gitusersview)
